@@ -1,4 +1,5 @@
 ﻿#pragma once
+
 /*/////////////////////////////////////////////////////////////////////////
 Pointer to function of force source in body axis
 x,y,z			  - force components in body coordinate system
@@ -84,64 +85,6 @@ typedef void (*PFN_SET_ATMOSPHERE)(double h,//altitude above sea level
 	double wind_vy,//components of velocity vector, including turbulence in world coordinate system
 	double wind_vz //components of velocity vector, including turbulence in world coordinate system
 	);
-
-enum class WNDVF_SPACE
-{
-	IN_BODY_SPACE, // pos expected to be in aircraft body space , wind  will be filled as wind converted to body space
-	IN_WORLD_SPACE,// pos expected to be in global space , wind  will be filled as wind in globalspace
-};
-
-struct wind_vector_field_component
-{
-	double pos[3]; // x,y,z components in DCS coordinates system (x positive forward ,y positive up , z positive to the right)
-	double wind[3]; // x,y,z components in DCS coordinates system (x positive forward ,y positive up , z positive to the right)
-};
-
-const unsigned wind_vector_field_component_size = sizeof(wind_vector_field_component);
-
-
-struct wind_vector_field
-{
-	wind_vector_field_component* field = nullptr;
-	//amount of points
-	unsigned						field_points_count = 0;
-	///sizeof  wind_vector_field_component 
-	///used when you store more data in derived structure
-	unsigned 						field_point_size_in_bytes = wind_vector_field_component_size;
-	//indicates in which coordinates system you want to have data
-	WNDVF_SPACE	space = WNDVF_SPACE::IN_BODY_SPACE;
-};
-/*
-called before simulation to set up your environment for the next step
-
-prototype for
-void ed_fm_wind_vector_field_update_request(wind_vector_field & in_out);
-void ed_fm_wind_vector_field_done()
-
-DCS will  call ed_fm_wind_vector_field_update_request first,
-after that it will read  in_out  structure and  fill all "field_points_count" points starting from "field"
-and fill wind  array with actual atmosphere state in that point
-
-after that ed_fm_wind_vector_field_done  will be called :
-
-wind_vector_field wind_data;
-ed_fm_wind_vector_field_update_request(wind_data);
-if (wind_data.field)
-{
-	for (int i = 0; i < wind_data.field_points_count; ++i)
-	{
-		wind_vector_field_component * pnt = (wind_vector_field_component*)((BYTE*)wind_data.field + i * (wind_data.field_point_size_in_bytes));
-
-		...DCS will request  atmosphere here for  wind in   pnt->pos with respect of wind_data.space
-	}
-}
-ed_fm_wind_vector_field_done();
-*/
-typedef void(*PFN_WIND_VECTOR_FIELD_UPDATE_REQUEST)(wind_vector_field& in_out);
-typedef void(*PFN_WIND_VECTOR_FIELD_DONE)();
-
-
-
 /*
 called before simulation to set up your environment for the next step
 
@@ -328,12 +271,7 @@ typedef double (*PFN_GET_SHAKE_AMPLITUDE) ();
 will be called for your internal configuration
 ed_fm_configure
 */
-typedef void (*PFN_CONFIGURE)  (const char* cfg_path);
-/*
-will be called for your internal configuration
-void ed_fm_release   called when fm not needed anymore : aircraft death etc.
-*/
-typedef void (*PFN_FM_RELEASE) ();
+typedef double (*PFN_CONFIGURE)  (const char* cfg_path);
 
 
 /*
@@ -360,17 +298,6 @@ enum ed_fm_param_enum
 	ED_FM_ENGINE_0_TEMPERATURE,//Celcius
 	ED_FM_ENGINE_0_OIL_PRESSURE,
 	ED_FM_ENGINE_0_FUEL_FLOW,
-	ED_FM_ENGINE_0_COMBUSTION,//level of combustion for engine  , 0 - 1
-
-	ED_FM_PISTON_ENGINE_0_MANIFOLD_PRESSURE,//
-
-	ED_FM_ENGINE_0_STARTER_RELATED_RPM,
-	ED_FM_ENGINE_0_STARTER_RELATED_TORQUE,
-	ED_FM_ENGINE_0_STARTER_SPIN_DOWN_RELATED_RPM,
-	ED_FM_ENGINE_0_STARTER_SPIN_DOWN_RELATED_TORQUE,
-	ED_FM_ENGINE_0_STARTER_CLUTCH_ENGAGED_RELATED_RPM,
-	ED_FM_ENGINE_0_STARTER_CLUTCH_ENGAGED_RELATED_TORQUE,
-
 
 	/*RESERVED PLACE FOR OTHER ENGINE PARAM*/
 	ED_FM_ENGINE_1_RPM = 100,
@@ -390,17 +317,6 @@ enum ed_fm_param_enum
 	ED_FM_ENGINE_1_TEMPERATURE,//Celcius
 	ED_FM_ENGINE_1_OIL_PRESSURE,
 	ED_FM_ENGINE_1_FUEL_FLOW,
-	ED_FM_ENGINE_1_COMBUSTION,//level of combustion for engine  , 0 - 1
-
-	ED_FM_PISTON_ENGINE_1_MANIFOLD_PRESSURE,
-
-	ED_FM_ENGINE_1_STARTER_RELATED_RPM,
-	ED_FM_ENGINE_1_STARTER_RELATED_TORQUE,
-	ED_FM_ENGINE_1_STARTER_SPIN_DOWN_RELATED_RPM,
-	ED_FM_ENGINE_1_STARTER_SPIN_DOWN_RELATED_TORQUE,
-	ED_FM_ENGINE_1_STARTER_CLUTCH_ENGAGED_RELATED_RPM,
-	ED_FM_ENGINE_1_STARTER_CLUTCH_ENGAGED_RELATED_TORQUE,
-
 	//.................................
 	ED_FM_ENGINE_2_RPM = 2 * (ED_FM_ENGINE_1_RPM - ED_FM_ENGINE_0_RPM),
 	ED_FM_ENGINE_2_RELATED_RPM,
@@ -419,26 +335,10 @@ enum ed_fm_param_enum
 	ED_FM_ENGINE_2_TEMPERATURE,//Celcius
 	ED_FM_ENGINE_2_OIL_PRESSURE,
 	ED_FM_ENGINE_2_FUEL_FLOW,
-	ED_FM_ENGINE_2_COMBUSTION,//level of combustion for engine , 0 - 1
 
-	ED_FM_PISTON_ENGINE_2_MANIFOLD_PRESSURE,
-
-	ED_FM_ENGINE_2_STARTER_RELATED_RPM,
-	ED_FM_ENGINE_2_STARTER_RELATED_TORQUE,
-	ED_FM_ENGINE_2_STARTER_SPIN_DOWN_RELATED_RPM,
-	ED_FM_ENGINE_2_STARTER_SPIN_DOWN_RELATED_TORQUE,
-	ED_FM_ENGINE_2_STARTER_CLUTCH_ENGAGED_RELATED_RPM,
-	ED_FM_ENGINE_2_STARTER_CLUTCH_ENGAGED_RELATED_TORQUE,
 
 	//.................................
 	ED_FM_ENGINE_3_RPM = 3 * (ED_FM_ENGINE_1_RPM - ED_FM_ENGINE_0_RPM),
-	ED_FM_ENGINE_3_RELATED_RPM,
-	ED_FM_ENGINE_3_CORE_RPM,
-	ED_FM_ENGINE_3_CORE_RELATED_RPM,
-	ED_FM_ENGINE_3_THRUST,
-	ED_FM_ENGINE_3_RELATED_THRUST,
-	ED_FM_ENGINE_3_CORE_THRUST,
-	ED_FM_ENGINE_3_CORE_RELATED_THRUST,
 	/*
 		up to 20 engines
 	*/
@@ -479,30 +379,10 @@ enum ed_fm_param_enum
 	ED_FM_SUSPENSION_10_RELATIVE_BRAKE_MOMENT = ED_FM_SUSPENSION_9_RELATIVE_BRAKE_MOMENT + (ED_FM_SUSPENSION_1_RELATIVE_BRAKE_MOMENT - ED_FM_SUSPENSION_0_RELATIVE_BRAKE_MOMENT),
 
 
-	ED_FM_OXYGEN_SUPPLY, // oxygen provided from on board oxygen system, pressure - pascal
+	ED_FM_OXYGEN_SUPPLY, // oxygen provided from on board oxygen system in kg/s
 	ED_FM_FLOW_VELOCITY,
 
 	ED_FM_CAN_ACCEPT_FUEL_FROM_TANKER,// return positive value if all conditions are matched to connect to tanker and get fuel
-
-	// Groups for fuel indicator
-	ED_FM_FUEL_FUEL_TANK_GROUP_0_LEFT,			// Values from different group of tanks
-	ED_FM_FUEL_FUEL_TANK_GROUP_0_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_1_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_1_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_2_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_2_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_3_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_3_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_4_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_4_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_5_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_5_RIGHT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_6_LEFT,
-	ED_FM_FUEL_FUEL_TANK_GROUP_6_RIGHT,
-	ED_FM_FUEL_INTERNAL_FUEL,
-	ED_FM_FUEL_TOTAL_FUEL,
-	ED_FM_FUEL_LOW_SIGNAL,						// Low fuel signal
-
 
 
 	ED_FM_ANTI_SKID_ENABLE,/* return positive value if anti skid system is on , it also corresspond with suspension table "anti_skid_installed"  parameter for each gear post .i.e
@@ -520,11 +400,6 @@ enum ed_fm_param_enum
 	ED_FM_STICK_FORCE_FACTOR_ROLL,
 	ED_FM_STICK_FORCE_SHAKE_AMPLITUDE_ROLL,
 	ED_FM_STICK_FORCE_SHAKE_FREQUENCY_ROLL,
-
-
-	ED_FM_COCKPIT_PRESSURIZATION_OVER_EXTERNAL, // additional pressure from pressurization system , pascal , actual cabin pressure will be AtmoPressure + COCKPIT_PRESSURIZATION_OVER_EXTERNAL
-
-	ED_FM_COCKPIT_ALTIMETER_PRESSURE_SETTING_MM_HG, // baro altimeter setting in mm hg
 
 	//params to integrate with old FC style cockpits
 	ED_FM_FC3_RESERVED_SPACE = 10000,
@@ -544,21 +419,6 @@ enum ed_fm_param_enum
 
 	ED_FM_FC3_AUTOPILOT_STATUS,
 	ED_FM_FC3_AUTOPILOT_FAILURE_ATTITUDE_STABILIZATION,
-
-	ED_FM_FC3_STICK_PITCH_LIMITER,	//ограничение РУС на себя (-1 .. 0 .. 1, 1 - не ограничивает)
-	ED_FM_FC3_STICK_ROLL_L_LIMITER,	//ограничение РУС по крену (0 .. 1, 1 - не ограничивает)
-	ED_FM_FC3_PEDAL_L_LIMITER,		//ограничение левой педали (0 .. 1, 1 - не ограничивает)
-	ED_FM_FC3_PEDAL_R_LIMITER,		//ограничение правой педали (0 .. 1, 1 - не ограничивает)
-
-	ED_FM_FC3_BREAKE_CHUTE_STATUS,
-	ED_FM_FC3_BREAKE_CHUTE_VALUE,
-
-	ED_FM_FC3_WHEEL_BRAKE_LEFT,
-	ED_FM_FC3_WHEEL_BRAKE_RIGHT,
-	ED_FM_FC3_WHEEL_BRAKE_COMMAND_LEFT,
-	ED_FM_FC3_WHEEL_BRAKE_COMMAND_RIGHT,
-
-	ED_FM_FC3_AR_DOOR_PROBE_HANDLE_POS, // Air refuel door/probe commanded position
 
 	ED_FM_FC3_RESERVED_SPACE_END = 11000,
 };
@@ -711,9 +571,6 @@ enum ed_fm_simulation_event_type
 	ED_FM_EVENT_FAILURE,
 	ED_FM_EVENT_STRUCTURE_DAMAGE,
 	ED_FM_EVENT_FIRE,
-	ED_FM_EVENT_CARRIER_CATAPULT,
-	ED_FM_EVENT_CARRIER_HOOKED,
-	ED_FM_EVENT_EFFECT
 };
 /*
 ED_FM_EVENT_FAILURE
@@ -746,167 +603,9 @@ event_params[7]  emitted particles speed
 event_params[8]  scale of fire , if scale will less or equal to zero , fire with this index will be stopped
 
 
-ED_FM_EVENT_CARRIER_CATAPULT
---event_message - "engine fire" or "left wing tank fire"
---event_params[0] fire control handle, index used to control change of effect in time
---event_params[1]
---event_params[2]
---event_params[3]  x , y ,z  coordinates of fire origin in aircraft body space
-
-
 
 */
-/*
-
-ED_FM_EVENT_CARRIER_CATAPULT
-
-comments from developer for latest available realization - from 2.5.1
-For takeoff from carrier:
-
- 1. Add connector "launch_bar_point" to nose gearpost connect point to catapult shuttle. Use draw argument 85 for launch bar animation.
-
- 2. Catch the event after born on carrier with catapult (use ed_fm_push_simulation_event)
- you can use it for example to init launch bar state
-
- in.event_type = ED_FM_EVENT_CARRIER_CATAPULT
- in.event_params[0] = 1;
-
- 3. Catapult will ask you start conditions (throttle or thrust has takeoff value), so throw the event any time that conditions changed:
-
- out.event_type = ED_FM_EVENT_CARRIER_CATAPULT
- out.event_params[0] = (1 if ready for takeoff, 0 if not)
-
-
- and here you can give additional params for physics (if not or zero - then default):
-
- out.event_params[1] = 3; //start delay [sec]
- out.event_params[2] = 67; //required velocity after takeoff [meters per sec] (+ with safety reserve; func of mass)
- out.event_params[3] = 0.5*9.8*mass; //mean engines thrust during takeoff [N] (func of mass)
-
- without this event catapult is waiting for afterburner flag
-
- 4. Catch the event after start running if you want:
-
- in.event_type = ED_FM_EVENT_CARRIER_CATAPULT
- in.event_params[0] = 2;
-
- 5. Catch the event after end of running (leaving carrier) if you want:
-
- in.event_type = ED_FM_EVENT_CARRIER_CATAPULT
- in.event_params[0] = 3;
-
-
- ---------------------------------------------------------------------------
- For landing to carrier:
-
- 1. Add connector "hook_point" to the end of hook. Use draw argument 25 for hook animation.
- 2. Add the segment element "HOOK" to collision model.
-*/
-
-// bool ed_fm_push_simulation_event(const ed_fm_simulation_event & in) // same as pop . but function direction is reversed -> DCS will call it for your FM when ingame event occurs
-typedef bool (*PFN_FM_PUSH_SIMULATION_EVENT) (const ed_fm_simulation_event& in);
-
-
-struct ed_fm_suspension_info
-{
-	double acting_force[3];
-	double acting_force_point[3];
-	double integrity_factor;
-	double struct_compression;
-	double wheel_speed_X;
-};
-/*
-	void ed_fm_suspension_feedback(int idx,const ed_fm_suspension_info * info)
-	feedback to your fm about suspension state
-*/
-typedef void (*PFN_FM_SUSPENSION_FEEDBACK) (int idx, const ed_fm_suspension_info* info);
 
 
 
-/*
-LERX VORTEX EFFECT DATA , as it complex effect with very specific realization for each aircraft , we decide to make separate API
-*/
-struct LERX_vortex_spline_point
-{
-	LERX_vortex_spline_point() {}
-
-	LERX_vortex_spline_point
-	(
-		float x,
-		float y,
-		float z,
-		float xVel,
-		float yVel,
-		float zVel,
-		float r,
-		float o
-	)
-	{
-		pos[0] = x;
-		pos[1] = y;
-		pos[2] = z;
-
-		vel[0] = xVel;
-		vel[1] = yVel;
-		vel[2] = zVel;
-
-		radius = r;
-		opacity = o;
-	}
-
-	///location in aircraft body frame
-	float pos[3];
-	///speed in aircraft body frame
-	float vel[3];
-	///vortex radius in that point
-	float radius;
-	///opacity per point , will be modulated by LERX_vortex::opacity , used only in LERX_vortex::version > 0
-	float opacity;
-
-};
-
-const unsigned LERX_vortex_spline_point_size = sizeof(LERX_vortex_spline_point);
-
-struct LERX_vortex
-{
-	///overall vortex opacity level
-	float opacity = 1.0f;
-	///distance of vortex burst point location - in meters from spline start
-	float explosion_start = 1.0f;
-	//pointer to points data , when spline is NULL - existed vortex will be detached 
-	LERX_vortex_spline_point* spline = nullptr;
-	//amount of points
-	unsigned 				   spline_points_count = 0;
-	///sizeof  LERX_vortex_spline_point 
-	///used when you store more data in derived structure
-	unsigned 				   spline_point_size_in_bytes = LERX_vortex_spline_point_size;
-	///versioning : > 0 - per point opacity 
-	unsigned 				   version = 0;
-};
-
-/*
-	bool ed_fm_LERX_vortex_update(unsigned idx,LERX_vortex & out)
-	idx - index of vortex ; 0 - left side , 1 - right side , others is not specified
-	control animation of lerx vortex effects of your airframe
-
-	LERX_vortex out;
-
-	while (ed_fm_LERX_vortex_update(idx,out))
-	{
-		if (!out.spline || !out.spline_points_count)
-		{
-			if (vortex_exist(idx))
-				vortex_detach(idx);
-		}
-		else
-		{
-			if (vortex_exist(idx))
-				vortex_update(idx,out);
-			else
-				vortex_create(idx,out);
-		}
-		++idx;
-	}
-*/
-typedef bool (*PFN_FM_LERX_VORTEX_UPDATE) (unsigned idx, LERX_vortex& out);
 
