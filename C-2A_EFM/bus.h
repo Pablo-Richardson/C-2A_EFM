@@ -1,6 +1,7 @@
 #pragma once
 #include <vector>
 #include "ED_FM_API.h"
+#include "wHumanCustomPhysicsAPI.h"
 //See comments at the end of this file for a reference of all functions and their data direction (input/output).
 extern "C"
 {
@@ -73,7 +74,48 @@ extern "C"
 	ED_FM_API void ed_fm_set_command(int command, double value);
 	ED_FM_API void ed_fm_set_internal_fuel(double fuel);
 	ED_FM_API void ed_fm_set_external_fuel(int station, double fuel, double x, double y, double z);
+	ED_FM_API bool ed_fm_push_simulation_event(const ed_fm_simulation_event& in);
+	ED_FM_API void ed_fm_on_damage(int element, double integrity_factor);
+	ED_FM_API void ed_fm_refueling_add_fuel(double fuel);
+	ED_FM_API void ed_fm_cold_start();
+	ED_FM_API void ed_fm_hot_start();
+	ED_FM_API void ed_fm_hot_start_in_air();
+	ED_FM_API void ed_fm_repair();
+	ED_FM_API void ed_fm_on_planned_failure(const char* failure_id);
+	ED_FM_API void ed_fm_release();
 
+//------------------------------------------------------------------------------------------------------------------------------------//
+	ED_FM_API void ed_fm_simulate(double deltaTime);
+	ED_FM_API void ed_fm_set_draw_args(EdDrawArgument* drawargs, size_t size);
+	ED_FM_API void ed_fm_add_local_force(double &x, double &y, double &z, double &pos_x, double &pos_y, double &pos_z);
+	ED_FM_API void ed_fm_add_global_force(double& x, double& y, double& z, double& pos_x, double& pos_y, double& pos_z);
+	ED_FM_API void ed_fm_add_local_moment(double& x, double& y, double& z);
+	ED_FM_API void ed_fm_add_global_moment(double& x, double& y, double& z);
+	ED_FM_API bool ed_fm_add_local_force_component(double& x, double& y, double& z, double& pos_x, double& pos_y, double& pos_z);
+	ED_FM_API bool ed_fm_add_global_force_component(double& x, double& y, double& z, double& pos_x, double& pos_y, double& pos_z);
+	ED_FM_API bool ed_fm_add_local_moment_component(double& x, double& y, double& z);
+	ED_FM_API bool ed_fm_add_global_moment_component(double& x, double& y, double& z);
+	ED_FM_API bool ed_fm_change_mass
+	(
+		double& delta_mass,
+		double& delta_mass_pos_x,
+		double& delta_mass_pos_y,
+		double& delta_mass_pos_z,
+		double& delta_mass_moment_of_inertia_x,
+		double& delta_mass_moment_of_inertia_y,
+		double& delta_mass_moment_of_inertia_z
+	);
+	ED_FM_API double ed_fm_get_internal_fuel();
+	ED_FM_API double ed_fm_get_param(unsigned param_enum);
+	ED_FM_API bool ed_fm_pop_simulation_event(ed_fm_simulation_event& out);
+	ED_FM_API bool ed_fm_need_to_be_repaired();
+
+//------------------------------------------------------------------------------------------------------------------------------------//
+	ED_FM_API void ed_fm_configure(const char* cfg_path);
+	ED_FM_API bool ed_fm_enable_debug_info();
+	ED_FM_API void ed_fm_set_immortal(bool value);
+	ED_FM_API void ed_fm_unlimited_fuel(bool value);
+	ED_FM_API void ed_fm_set_plugin_data_install_path(const char* path);
 }
 
 /*
@@ -96,10 +138,8 @@ Functions that GET data FROM DCS (input to your FM):
 - void   ed_fm_cold_start / hot_start: Receives instruction to set up cold/hot start
 - void   ed_fm_repair:                 Receives instruction to repair aircraft
 - void   ed_fm_on_planned_failure:     Receives notification of a planned system failure
-- void   ed_fm_suspension_feedback:    Receives landing gear/suspension feedback
-- void   ed_fm_set_plugin_data_install_path: Receives plugin install path on load
-- void   ed_fm_configure:              Receives configuration on startup
 - void   ed_fm_release:                Receives notification to release resources
+
 
 Functions that GIVE data TO DCS (output from your FM):
 ------------------------------------------------------
@@ -115,10 +155,18 @@ Functions that GIVE data TO DCS (output from your FM):
 - bool   ed_fm_add_global_moment_component: Provides individual global moment components
 - bool   ed_fm_change_mass:            Provides DCS with info about mass/fuel changes for internal calculations
 - double ed_fm_get_internal_fuel:      Provides current internal fuel quantity
-- double ed_fm_get_external_fuel:      Provides current external fuel quantity
 - double ed_fm_get_param:              Provides DCS with various calculated state values (RPM, AOA, etc)
 - bool   ed_fm_pop_simulation_event:   Provides simulation events (catapult, damage, etc) to DCS
 - bool   ed_fm_need_to_be_repaired:    Provides info on whether aircraft needs repairs
+
+
+Functions that neither GET nor GIVE data to DCS (utility functions):
+---------------------------------------------------
+- void   ed_fm_configure:              Configures the flight model via a config file path
+- bool   ed_fm_enable_debug_info:      Enables debug info output
+- void   ed_fm_set_immortal:           Sets invulnerability mode
+- void   ed_fm_unlimited_fuel:         Sets unlimited fuel mode
+- void   ed_fm_set_plugin_data_install_path: Sets the path for plugin data installation (rarely used)
 
 Notes:
 ------
