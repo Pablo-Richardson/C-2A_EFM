@@ -27,5 +27,25 @@
     <ClInclude Include="cod.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="part.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="wing.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="vertStab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="horizStab.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="engine.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="wing.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
