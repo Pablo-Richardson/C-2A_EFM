@@ -1,5 +1,13 @@
 #pragma once
 
+enum ControlCommands
+{
+	CMD_ELEVATOR = 2001,
+	CMD_AILERON = 2002,
+	CMD_RUDDER = 2003,
+	CMD_THROTTLE = 2004
+};
+
 struct ControlInputs
 {
 	double elevator, aileron, rudder, throttle;
