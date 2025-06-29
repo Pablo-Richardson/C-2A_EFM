@@ -7,7 +7,7 @@ struct massState {
 
 class MassProperties {
 public:
-	void update(const massState& mass) {}
+	void update(const massState& mass) { data = mass; }
 	const massState& get() const { return data; }
 private:
 	massState data = { 25000, {0.0, 0.0, 0.0} }; // Default mass and COM
