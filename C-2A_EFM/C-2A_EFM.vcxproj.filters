@@ -24,28 +24,35 @@
     <ClInclude Include="wHumanCustomPhysicsAPI.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cod.h">
+    <ClInclude Include="constants.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="part.h">
+    <ClInclude Include="massProperties.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="wing.h">
+    <ClInclude Include="controls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="vertStab.h">
+    <ClInclude Include="aerodynamicsh.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="horizStab.h">
+    <ClInclude Include="atmosphere.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="state.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="flightModel.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="forcesMoments.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="engine.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="wing.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClInclude Include="quaternions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

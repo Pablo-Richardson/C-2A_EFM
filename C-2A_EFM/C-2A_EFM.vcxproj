@@ -127,18 +127,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="aerodynamicsh.h" />
+    <ClInclude Include="atmosphere.h" />
     <ClInclude Include="bus.h" />
-    <ClInclude Include="cod.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="controls.h" />
     <ClInclude Include="ED_FM_API.h" />
     <ClInclude Include="engine.h" />
-    <ClInclude Include="horizStab.h" />
-    <ClInclude Include="part.h" />
-    <ClInclude Include="vertStab.h" />
+    <ClInclude Include="flightModel.h" />
+    <ClInclude Include="forcesMoments.h" />
+    <ClInclude Include="massProperties.h" />
+    <ClInclude Include="quaternions.h" />
+    <ClInclude Include="state.h" />
     <ClInclude Include="wHumanCustomPhysicsAPI.h" />
-    <ClInclude Include="wing.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="wing.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

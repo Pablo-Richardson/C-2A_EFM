@@ -3,7 +3,7 @@
 // Store state of aicraft 
 // Done
 struct StateData {
-    double pos[3], vel[3], acc[3], angVel[3], angAcc[3], quat[4], alpha, beta; // Pos is world pos
+    double pos[3], vel[3], force[3], quat[4], alpha, beta; // Pos is world pos
 };
 
 
@@ -19,16 +19,13 @@ public:
     State() : data{} {}
 
     // Full constructor
-    State(const double pos[3], const double vel[3], const double acc[3],
-        const double angVel[3], const double angAcc[3], const double quat[4],
+    State(const double pos[3], const double vel[3], const double force[3], const double quat[4],
         double alpha, double beta)
     {
         for (int i = 0; i < 3; ++i) {
             data.pos[i] = pos[i];
             data.vel[i] = vel[i];
-            data.acc[i] = acc[i];
-            data.angVel[i] = angVel[i];
-            data.angAcc[i] = angAcc[i];
+            data.force[i] = force[i];
         }
         for (int i = 0; i < 4; ++i) {
             data.quat[i] = quat[i];
