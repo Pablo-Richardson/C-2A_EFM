@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cmath>
-#include <vector>
 #include "ForcesMoments.h"
 
 // Quaternion struct
 struct Quaternion {
     double w, x, y, z;
+
+	Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
 
     // Conjugate
     Quaternion conjugate() const {

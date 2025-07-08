@@ -1,6 +1,5 @@
 #pragma once
 #include "constants.h"
-#include <vector>
 // Keeps track of atmospheric conditions and provides them to the flight model - Recieves data from DCS
 // Replace array with vector!
 struct AtmosphereData {

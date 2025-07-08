@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 #include "ED_FM_API.h"
 #include "wHumanCustomPhysicsAPI.h"
 //See comments at the end of this file for a reference of all functions and their data direction (input/output).

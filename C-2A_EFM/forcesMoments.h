@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 // This struct is my custom struct allowing for forces and moments to be added up
 struct ForcesMoments {
     double force[3];   // body axis

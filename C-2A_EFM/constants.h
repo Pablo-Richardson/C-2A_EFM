@@ -1,5 +1,4 @@
 #pragma once
-#include <vector>
 
 double static constexpr wingArea = 65; // Meters^2
 double static constexpr frontalArea = 13.5; // Meters^2

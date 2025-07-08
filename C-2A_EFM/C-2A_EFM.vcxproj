@@ -139,6 +139,7 @@
     <ClInclude Include="massProperties.h" />
     <ClInclude Include="quaternions.h" />
     <ClInclude Include="state.h" />
+    <ClInclude Include="Vec3.h" />
     <ClInclude Include="wHumanCustomPhysicsAPI.h" />
   </ItemGroup>
   <ItemGroup>
