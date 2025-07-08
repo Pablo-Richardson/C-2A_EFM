@@ -1,11 +1,13 @@
 #include <iostream>
 #include <cmath>
+#include "Vec3.h"
 #include "ForcesMoments.h"
 
 // Quaternion struct
 struct Quaternion {
     double w, x, y, z;
 
+    // Constructor to initialize a quaternion with given values
 	Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
 
     // Conjugate
@@ -42,17 +44,17 @@ struct Quaternion {
 };
 
 // Rotate a 3D vector using a quaternion
-void rotateVectorByQuaternion(const Quaternion& q, double vec[3]) {
+void rotateVectorByQuaternion(const Quaternion& q, Vec3& vec) {
     Quaternion qNorm = q;
     qNorm.normalize();
     Quaternion qConj = qNorm.conjugate();
 
-    Quaternion qVec = { 0, vec[0], vec[1], vec[2] };
+    Quaternion qVec = { 0, vec.x, vec.y, vec.z };
     Quaternion result = qNorm * qVec * qConj;
 
-    vec[0] = result.x;
-    vec[1] = result.y;
-    vec[2] = result.z;
+    vec.x = result.x;
+    vec.y = result.y;
+    vec.z = result.z;
 }
 
 // Rotate force vector of ForcesMoments using a quaternion
