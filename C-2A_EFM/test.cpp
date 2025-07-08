@@ -11,7 +11,7 @@ int main(int argc, char* argv[])
     ForcesMoments fmLift(liftForce, emptyMoment);
     ForcesMoments fmDrag(dragForce, emptyMoment);
 
-    Quaternion q = { 12, 18, 40, 25 };
+    Quaternion q = { 0, 0, 0, 1 };
 
     fmLift = rotateForcesByQuaternion(fmLift, q);
     fmDrag = rotateForcesByQuaternion(fmDrag, q);
