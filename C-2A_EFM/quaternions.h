@@ -2,7 +2,7 @@
 #include <cmath>
 #include "Vec3.h"
 #include "ForcesMoments.h"
-
+// Complete
 // Quaternion struct
 struct Quaternion {
     double w, x, y, z;
