@@ -1,7 +1,20 @@
 #pragma once
+#include "forcesMoments.h"
 #include <vector>
 // Store state of aicraft 
 // Done
+
+class State {
+public:
+    
+private:
+    //State Data
+
+};
+
+
+/*
+
 struct StateData {
     double pos[3], vel[3], force[3], quat[4], alpha, beta; // Pos is world pos
 };
@@ -10,12 +23,12 @@ struct StateData {
 class State {
 public:
     // Updates state
-	void update(const StateData& newState) { data = newState; }
+    void update(const StateData& newState) { data = newState; }
 
     // Returns reference to state
     const StateData& getState() const { return data; }
 
-    // Empty constructor 
+    // Empty constructor
     State() : data{} {}
 
     // Full constructor
@@ -36,3 +49,5 @@ public:
 private:
     StateData data;
 };
+
+*/

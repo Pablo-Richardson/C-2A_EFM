@@ -2,7 +2,7 @@
 #include "constants.h"
 #include <vector>
 // Keeps track of atmospheric conditions and provides them to the flight model - Recieves data from DCS
-// Done
+// Replace array with vector!
 struct AtmosphereData {
 	double dens, alt, temp, press, wind[3];
 };

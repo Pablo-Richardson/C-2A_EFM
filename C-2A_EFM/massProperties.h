@@ -1,4 +1,5 @@
 #pragma once
+#include <vector>
 // I wont update these, and just assume a centered COM, but you can use a file like this to update the COM for moment calculations
 // You can also use it to update the mass of the aircraft based on fuel - realism (make sure to account for fuel mass when the aircraft is initialised!)
 struct massState {
