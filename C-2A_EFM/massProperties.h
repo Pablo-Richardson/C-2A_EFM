@@ -26,33 +26,3 @@ private:
 	Vec3 com; // Center of Mass in local coordinates
 	double mass; // Mass in kg
 };
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-struct massState {
-	double mass; // Mass in kg
-	Vec3 com; // Center of Mass in local coordinates
-};
-
-class MassProperties {
-public:
-	MassProperties() = default;
-	MassProperties(const massState& mass) : data(mass) {}
-	void update(const massState& mass) { data = mass; }
-	const massState& get() const { return data; }
-	void updateMass(const double mass) { data.mass = mass; }
-	const double& getMass() const { return data.mass; }
-private:
-	massState data = { 25000, {0.0, 0.0, 0.0} }; // Default mass and COM
-};
-*/
