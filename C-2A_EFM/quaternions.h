@@ -8,7 +8,7 @@ struct Quaternion {
     double w, x, y, z;
 
     // Constructor to initialize a quaternion with given values
-	Quaternion(double w, double x, double y, double z) : w(w), x(x), y(y), z(z) {}
+	Quaternion(double w_s, double x_s, double y_s, double z_s) : w(w_s), x(x_s), y(y_s), z(z_s) {}
 
     // Conjugate
     Quaternion conjugate() const {

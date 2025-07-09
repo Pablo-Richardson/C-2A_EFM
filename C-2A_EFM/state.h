@@ -1,15 +1,21 @@
 #pragma once
 #include "forcesMoments.h"
+#include "quaternions.h"
 #include <vector>
-// Store state of aicraft 
-// Done
+// Store state of aicraft
 
 class State {
 public:
-    
+    // Empty Constructor
+	State() : pos{ 0, 0, 0 }, vel{ 0, 0, 0 }, forceMoment{}, quat{ 1, 0, 0, 0 }, alpha(0), beta(0), TAS(0), GS(0) {}
+	// Copy Constructor
+	State(Vec3 pos_s, Vec3 vel_s, ForcesMoments forceMoment_s, Quaternion quat_s, double alpha_s, double beta_s, double TAS_s, double GS_s)
+		: pos(pos_s), vel(vel_s), forceMoment(forceMoment_s), quat(quat_s), alpha(alpha_s), beta(beta_s), TAS(TAS_s), GS(GS_s) {}
 private:
-    //State Data
-
+    Vec3 pos, vel;
+    ForcesMoments forceMoment;
+    Quaternion quat;
+    double alpha, beta, TAS, GS;
 };
 
 

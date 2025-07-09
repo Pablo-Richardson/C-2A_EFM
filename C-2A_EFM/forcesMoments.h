@@ -22,9 +22,9 @@ struct ForcesMoments {
 	// Default constructor initializes forces and moments to zero
     ForcesMoments() : force{ 0.0, 0.0, 0.0 }, moment{ 0.0, 0.0, 0.0 } {}
 	// Constructor to initialize forces and moments with given values
-    ForcesMoments(const Vec3 f, const Vec3 m) {
-		force = f;
-		moment = m;
+    ForcesMoments(const Vec3 force_s, const Vec3 moment_s) {
+		force = force_s;
+		moment = moment_s;
     }
 };
 // Function to sum all forces and moments

@@ -11,13 +11,13 @@ public:
 	// Default constructor with default COM and mass
 	massProperties() : com{ 0.0, 0.0, 0.0 }, mass(25000.0) {}
 	// Constructor to initialize with specific COM and mass
-	massProperties(const Vec3& centerOfMass, double massValue) : com(centerOfMass), mass(massValue) {}
+	massProperties(const Vec3& com_s, double mass_s) : com(com_s), mass(mass_s) {}
 	// Update the mass and COM
-	void update(const Vec3& centerOfMass, double massValue) { com = centerOfMass; mass = massValue; }
+	void update(const Vec3& com_s, double mass_s) { com = com_s; mass = mass_s; }
 	// Set COM
-	void setCOM(const Vec3& centerOfMass) { com = centerOfMass; }
+	void setCOM(const Vec3& com_s) { com = com_s; }
 	// Set mass
-	void setMass(double massValue) { mass = massValue; }
+	void setMass(double mass_s) { mass = mass_s; }
 	// Get COM
 	const Vec3& getCOM() const { return com; }
 	// Get mass

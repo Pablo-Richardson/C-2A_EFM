@@ -10,7 +10,7 @@ public:
 	double getRPM() const { return rpm; }
 	double getFuelFlow() const { return fuelFlow; }
 	double getIsRunning() const { return isRunning; }
-	Engine() : rpm(0.0), thrust(0.0), fuelFlow(0.0), isRunning(false) {}
+	Engine() : rpm(0.0), thrust(0.0), fuelFlow(0.0), isRunning(true) {} // For now it will always be "Running" :D
 	void update(double throttlePos)
 	{
 		if(getIsRunning() == true)
