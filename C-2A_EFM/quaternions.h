@@ -61,7 +61,11 @@ void rotateVectorByQuaternion(const Quaternion& q, Vec3& vec) {
 ForcesMoments rotateForcesByQuaternion(const ForcesMoments& fm, const Quaternion& q) {
     ForcesMoments rotated = fm;
     rotateVectorByQuaternion(q, rotated.force);
-    // To also rotate the moment:
-    // rotateVectorByQuaternion(q, rotated.moment);
     return rotated;
+}
+
+ForcesMoments rotateMomentsByQuaternion(const ForcesMoments& fm, const Quaternion& q) {
+	ForcesMoments rotated = fm;
+	rotateVectorByQuaternion(q, rotated.moment);
+	return rotated;
 }
