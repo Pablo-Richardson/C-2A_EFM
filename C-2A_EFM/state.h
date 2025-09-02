@@ -11,49 +11,40 @@ public:
 	// Copy Constructor
 	State(Vec3 pos_s, Vec3 vel_s, ForcesMoments forceMoment_s, Quaternion quat_s, double alpha_s, double beta_s, double TAS_s, double GS_s)
 		: pos(pos_s), vel(vel_s), forceMoment(forceMoment_s), quat(quat_s), alpha(alpha_s), beta(beta_s), TAS(TAS_s), GS(GS_s) {}
+    // Getters
+	Vec3 getPos() const { return pos; }
+	Vec3 getVel() const { return vel; }
+	ForcesMoments getForceMoment() const { return forceMoment; }
+	Quaternion getQuat() const { return quat; }
+	double getAlpha() const { return alpha; }
+	double getBeta() const { return beta; }
+	double getTAS() const { return TAS; }
+	double getGS() const { return GS; }
+    //Individual setters
+	void setPos(const Vec3& pos_s) { pos = pos_s; }
+	void setVel(const Vec3& vel_s) { vel = vel_s; }
+	void setForceMoment(const ForcesMoments& forceMoment_s) { forceMoment = forceMoment_s; }
+	void setQuat(const Quaternion& quat_s) { quat = quat_s; }
+	void setAlpha(double alpha_s) { alpha = alpha_s; }
+	void setBeta(double beta_s) { beta = beta_s; }
+	void setTAS(double TAS_s) { TAS = TAS_s; }
+	void setGS(double GS_s) { GS = GS_s; }
+	// Update state
+	void updateState(const Vec3& pos_s, const Vec3& vel_s, const ForcesMoments& forceMoment_s, const Quaternion& quat_s, double alpha_s, double beta_s, double TAS_s, double GS_s)
+	{
+		pos = pos_s;
+		vel = vel_s;
+		forceMoment = forceMoment_s;
+		quat = quat_s;
+		alpha = alpha_s;
+		beta = beta_s;
+		TAS = TAS_s;
+		GS = GS_s;
+	}
+
 private:
     Vec3 pos, vel;
     ForcesMoments forceMoment;
     Quaternion quat;
     double alpha, beta, TAS, GS;
 };
-
-
-/*
-
-struct StateData {
-    double pos[3], vel[3], force[3], quat[4], alpha, beta; // Pos is world pos
-};
-
-
-class State {
-public:
-    // Updates state
-    void update(const StateData& newState) { data = newState; }
-
-    // Returns reference to state
-    const StateData& getState() const { return data; }
-
-    // Empty constructor
-    State() : data{} {}
-
-    // Full constructor
-    State(const double pos[3], const double vel[3], const double force[3], const double quat[4],
-        double alpha, double beta)
-    {
-        for (int i = 0; i < 3; ++i) {
-            data.pos[i] = pos[i];
-            data.vel[i] = vel[i];
-            data.force[i] = force[i];
-        }
-        for (int i = 0; i < 4; ++i) {
-            data.quat[i] = quat[i];
-        }
-        data.alpha = alpha;
-        data.beta = beta;
-    }
-private:
-    StateData data;
-};
-
-*/
