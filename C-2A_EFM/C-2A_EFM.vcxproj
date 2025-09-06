@@ -127,7 +127,6 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="aerodynamicsh.h" />
     <ClInclude Include="atmosphere.h" />
     <ClInclude Include="bus.h" />
     <ClInclude Include="constants.h" />

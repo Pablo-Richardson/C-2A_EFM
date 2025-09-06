@@ -33,9 +33,6 @@
     <ClInclude Include="controls.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="aerodynamicsh.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="atmosphere.h">
       <Filter>Header Files</Filter>
     </ClInclude>

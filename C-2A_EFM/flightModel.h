@@ -3,6 +3,7 @@
 #include "forcesMoments.h"
 #include "state.h"
 #include "constants.h"
+#include <cmath>
 
 class FlightModel {
 public:
