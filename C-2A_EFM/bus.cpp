@@ -6,10 +6,11 @@
 #include "flightModel.h"
 #include "massProperties.h"
 #include "engine.h"
+#include <cmath>
 
 // --- Module-level state ---
 static State g_state;
-static massProperties g_mass;  // Using your actual class name
+static massProperties g_mass;
 static double g_rho = 1.225; // Default air density
 static double g_wind[3] = { 0.0, 0.0, 0.0 };
 static double g_alt = 0.0, g_temp = 288.15, g_mach = 0.0, g_press = 101325.0;
@@ -92,7 +93,10 @@ void ed_fm_set_current_state_body_axis(
     double yaw, double pitch, double roll,
     double angle_of_attack, double angle_of_slide)
 {
-    // Optionally update alpha and beta from DCS
+    double tas = std::sqrt(vel_x * vel_x + vel_y * vel_y + vel_z * vel_z);
+    g_state.setTAS(tas);
+
+    // Update alpha and beta from DCS
     g_state.setAlpha(angle_of_attack);
     g_state.setBeta(angle_of_slide);
 }
