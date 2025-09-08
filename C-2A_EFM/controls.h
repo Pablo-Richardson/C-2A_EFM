@@ -27,14 +27,21 @@ public:
 	// Set 1 command by value
 	void setCommand(int command, double value)
 	{
-		if (command == CMD_ELEVATOR)
+		switch (command)
+		{
+		case CMD_ELEVATOR:
 			elevator = clamp(value, -1.0, 1.0);
-		else if (command == CMD_AILERON)
+			break;
+		case CMD_AILERON:
 			aileron = clamp(value, -1.0, 1.0);
-		else if (command == CMD_RUDDER)
+			break;
+		case CMD_RUDDER:
 			rudder = clamp(value, -1.0, 1.0);
-		else if (command == CMD_THROTTLE)
-			throttle = clamp(value, 0, 1.0);
+			break;
+		case CMD_THROTTLE:
+			throttle = clamp(value, 0.0, 1.0);
+			break;
+		}
 	}
 	// Set all commands
 	void setCommands(double elevator_s, double aileron_s, double rudder_s, double throttle_s)

@@ -6,12 +6,14 @@
 #include "flightModel.h"
 #include "massProperties.h"
 #include "engine.h"
+#include "controls.h"
 #include <cmath>
 
 // --- Module-level state ---
 static State g_state;
 static massProperties g_mass;
 static double g_rho = 1.225; // Default air density
+static Controls g_controls;
 static double g_wind[3] = { 0.0, 0.0, 0.0 };
 static double g_alt = 0.0, g_temp = 288.15, g_mach = 0.0, g_press = 101325.0;
 
@@ -65,10 +67,25 @@ void ed_fm_simulate(double deltaTime)
     // 2. Get thrust from engine
     ForcesMoments thrust = Engine::getThrust(g_state);
 
-    // 3. Sum all forces and moments
-    ForcesMoments total = aero + thrust;
+    // 3. Get control inputs
+	double elevator = g_controls.getElevator();
+	double aileron = g_controls.getAileron();
+    double rudder = g_controls.getRudder();
 
-    // 4. Send forces and moments to DCS (at CG)
+    // 4. Translate into moments
+	ForcesMoments controlsSurfaces(
+		Vec3(0.0, 0.0, 0.0),
+		Vec3(
+			elevator * 1000.0,   // Pitch moment
+			aileron * 1000.0,    // Roll moment
+			rudder * 500.0       // Yaw moment
+		)
+	);
+
+    // 5. Sum all forces and moments
+    ForcesMoments total = aero + thrust + controlsSurfaces;
+
+    // 6. Send forces and moments to DCS (at CG)
     double fx = total.force.x, fy = total.force.y, fz = total.force.z;
     double mx = total.moment.x, my = total.moment.y, mz = total.moment.z;
 
@@ -77,7 +94,6 @@ void ed_fm_simulate(double deltaTime)
     double cgx = com.x, cgy = com.y, cgz = com.z;
 }
 
-// --- Stubs for other required DCS functions (implement as needed) ---
 
 void ed_fm_set_current_state_body_axis(
     double acc_x, double acc_y, double acc_z,
@@ -101,7 +117,11 @@ void ed_fm_set_surface(
     double normal_x, double normal_y, double normal_z) {
 }
 
-void ed_fm_set_command(int command, double value) {}
+void ed_fm_set_command(int command, double value) 
+{
+    g_controls.setCommand(command, value);
+}  
+
 void ed_fm_set_internal_fuel(double fuel) {}
 void ed_fm_set_external_fuel(int station, double fuel, double x, double y, double z) {}
 bool ed_fm_push_simulation_event(const ed_fm_simulation_event& in) { return false; }
@@ -115,8 +135,6 @@ void ed_fm_on_planned_failure(const char* failure_id) {}
 void ed_fm_release() {}
 void ed_fm_set_draw_args(EdDrawArgument* drawargs, size_t size) {}
 
-// Note: The following functions should NOT be defined by us - they're provided by DCS
-// Commented out to avoid conflicts:
 // void ed_fm_add_local_force(double& x, double& y, double& z, double& pos_x, double& pos_y, double& pos_z) {}
 // void ed_fm_add_local_moment(double& x, double& y, double& z) {}
 
@@ -131,7 +149,7 @@ bool ed_fm_change_mass(
     double& delta_mass_moment_of_inertia_x, double& delta_mass_moment_of_inertia_y, double& delta_mass_moment_of_inertia_z) {
     return false;
 }
-double ed_fm_get_internal_fuel() { return 0.0; }
+double ed_fm_get_internal_fuel() { return 1000.0; }
 double ed_fm_get_param(unsigned param_enum) { return 0.0; }
 bool ed_fm_pop_simulation_event(ed_fm_simulation_event& out) { return false; }
 bool ed_fm_need_to_be_repaired() { return false; }

@@ -1,8 +1,5 @@
 ﻿  atmosphere.cpp
   bus.cpp
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
-  (compiling source file 'bus.cpp')
-  
 C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(20,6): warning C4273: 'ed_fm_set_atmosphere': inconsistent dll linkage
       C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(7,17):
       see previous definition of 'ed_fm_set_atmosphere'
@@ -144,79 +141,8 @@ C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(142,6): warning C42
       see previous definition of 'ed_fm_set_plugin_data_install_path'
   
   engine.cpp
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
-  (compiling source file 'engine.cpp')
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(3,9): warning C4273: 'Engine::Engine': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(16,5):
-      see previous definition of 'Engine::Engine'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(5,16): warning C4273: 'Engine::getThrust': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(19,12):
-      see previous definition of 'Engine::getThrust'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(6,16): warning C4273: 'Engine::getRPM': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(20,12):
-      see previous definition of 'Engine::getRPM'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(7,16): warning C4273: 'Engine::getFuelFlow': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(21,12):
-      see previous definition of 'Engine::getFuelFlow'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(8,14): warning C4273: 'Engine::getIsRunning': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(22,10):
-      see previous definition of 'Engine::getIsRunning'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(10,14): warning C4273: 'Engine::update': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(24,10):
-      see previous definition of 'Engine::update'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(20,23): warning C4273: 'Engine::getThrust': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(27,26):
-      see previous definition of 'Engine::getThrust'
-  
   forcesMoments.cpp
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
-  (compiling source file 'forcesMoments.cpp')
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.cpp(23,15): warning C4273: 'sumAllForcesMoments': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(26,22):
-      see previous definition of 'sumAllForcesMoments'
-  
   quaternions.cpp
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
-  (compiling source file 'quaternions.cpp')
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(3,13): warning C4273: 'Quaternion::Quaternion': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(15,5):
-      see previous definition of 'Quaternion::Quaternion'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(7,24): warning C4273: 'Quaternion::conjugate': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(17,16):
-      see previous definition of 'Quaternion::conjugate'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(11,24): warning C4273: 'Quaternion::operator *': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(18,16):
-      see previous definition of 'Quaternion::operator *'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(20,18): warning C4273: 'Quaternion::normalize': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(19,10):
-      see previous definition of 'Quaternion::normalize'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(36,6): warning C4273: 'rotateVectorByQuaternion': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(22,13):
-      see previous definition of 'rotateVectorByQuaternion'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(49,15): warning C4273: 'rotateForcesByQuaternion': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(23,22):
-      see previous definition of 'rotateForcesByQuaternion'
-  
-C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(55,15): warning C4273: 'rotateMomentsByQuaternion': inconsistent dll linkage
-      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(24,22):
-      see previous definition of 'rotateMomentsByQuaternion'
-  
   Generating Code...
      Creating library C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.lib and object C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.exp
-LINK : warning LNK4217: symbol '??0Quaternion@@QEAA@NNNN@Z (public: __cdecl Quaternion::Quaternion(double,double,double,double))' defined in 'quaternions.obj' is imported by 'bus.obj' in function '"public: __cdecl State::State(void)" (??0State@@QEAA@XZ)'
-LINK : warning LNK4217: symbol '?getThrust@Engine@@SA?AUForcesMoments@@AEBVState@@@Z (public: static struct ForcesMoments __cdecl Engine::getThrust(class State const &))' defined in 'engine.obj' is imported by 'bus.obj' in function 'ed_fm_simulate'
   C-2A_EFM.vcxproj -> C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.dll

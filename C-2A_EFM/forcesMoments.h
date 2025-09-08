@@ -1,14 +1,8 @@
 #pragma once
 #include "Vec3.h"
 
-#ifdef BUILDING_MY_DLL
-#define MY_API __declspec(dllexport)
-#else
-#define MY_API __declspec(dllimport)
-#endif
-
 // This struct is my custom struct allowing for forces and moments to be added up
-MY_API struct ForcesMoments {
+struct ForcesMoments {
     Vec3 force;   // body axis
     Vec3 moment;  // body axis
 
@@ -23,4 +17,4 @@ MY_API struct ForcesMoments {
 };
 
 // Declaration only!
-MY_API ForcesMoments sumAllForcesMoments(ForcesMoments lift, ForcesMoments drag, ForcesMoments thrust);
+ForcesMoments sumAllForcesMoments(ForcesMoments lift, ForcesMoments drag, ForcesMoments thrust);

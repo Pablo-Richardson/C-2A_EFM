@@ -4,13 +4,7 @@
 #include "state.h"
 #include <iostream>
 
-#ifdef BUILDING_MY_DLL
-#define MY_API __declspec(dllexport)
-#else
-#define MY_API __declspec(dllimport)
-#endif
-
-class MY_API Engine
+class Engine
 {
 public:
     Engine();
