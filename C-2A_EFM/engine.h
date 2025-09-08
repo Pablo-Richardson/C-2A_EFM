@@ -4,39 +4,27 @@
 #include "state.h"
 #include <iostream>
 
-class Engine
+#ifdef BUILDING_MY_DLL
+#define MY_API __declspec(dllexport)
+#else
+#define MY_API __declspec(dllimport)
+#endif
+
+class MY_API Engine
 {
 public:
+    Engine();
+
     // Getters
-    double getThrust() const { return thrust; }
-    double getRPM() const { return rpm; }
-    double getFuelFlow() const { return fuelFlow; }
-    bool getIsRunning() const { return isRunning; }
+    double getThrust() const;
+    double getRPM() const;
+    double getFuelFlow() const;
+    bool getIsRunning() const;
 
-    Engine() : rpm(0.0), thrust(0.0), fuelFlow(0.0), isRunning(true) {}
-
-    void update(double throttlePos)
-    {
-        if (getIsRunning() == true)
-        {
-            rpm = maxRPM * throttlePos;
-            thrust = (rpm / maxRPM) * 44540; // Thrust in Newtons
-            fuelFlow = (rpm / maxRPM) * 10; // Fuel flow in kg/s
-        }
-    }
+    void update(double throttlePos);
 
     // Static method for bus.cpp to use
-    static ForcesMoments getThrust(const State& state)
-    {
-        static Engine engine; // Static engine instance
-        engine.update(1.0); // For now, assume full throttle - replace with actual throttle input
-
-        // Create force vector (thrust in X direction, no Y or Z forces)
-        Vec3 force(engine.getThrust(), 0.0, 0.0);
-        Vec3 moment(0.0, 0.0, 0.0); // No engine moments for now
-
-        return ForcesMoments(force, moment);
-    }
+    static ForcesMoments getThrust(const State& state);
 
 private:
     double rpm;

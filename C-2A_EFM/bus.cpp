@@ -48,7 +48,6 @@ void ed_fm_set_current_state(
     g_state.setPos(Vec3(pos_x, pos_y, pos_z));
     g_state.setVel(Vec3(vel_x, vel_y, vel_z));
     g_state.setQuat(Quaternion(quaternion_w, quaternion_x, quaternion_y, quaternion_z));
-    // Optionally: set angular rates, accelerations, etc.
 }
 
 void ed_fm_set_current_mass_state(double mass, double pos_x, double pos_y, double pos_z)
@@ -76,10 +75,6 @@ void ed_fm_simulate(double deltaTime)
     // Get COM from massProperties (convert Vec3 to individual components)
     Vec3 com = g_mass.getCOM();
     double cgx = com.x, cgy = com.y, cgz = com.z;
-
-    // Note: These functions are provided by DCS, not defined by us
-    ed_fm_add_local_force(fx, fy, fz, cgx, cgy, cgz);
-    ed_fm_add_local_moment(mx, my, mz);
 }
 
 // --- Stubs for other required DCS functions (implement as needed) ---

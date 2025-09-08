@@ -1,2 +1,222 @@
-﻿  test.cpp
-  C-2A_EFM.vcxproj -> C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.exe
+﻿  atmosphere.cpp
+  bus.cpp
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
+  (compiling source file 'bus.cpp')
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(20,6): warning C4273: 'ed_fm_set_atmosphere': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(7,17):
+      see previous definition of 'ed_fm_set_atmosphere'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(40,6): warning C4273: 'ed_fm_set_current_state': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(18,17):
+      see previous definition of 'ed_fm_set_current_state'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(53,6): warning C4273: 'ed_fm_set_current_mass_state': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(63,17):
+      see previous definition of 'ed_fm_set_current_mass_state'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(60,6): warning C4273: 'ed_fm_simulate': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(87,17):
+      see previous definition of 'ed_fm_simulate'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(82,6): warning C4273: 'ed_fm_set_current_state_body_axis': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(40,17):
+      see previous definition of 'ed_fm_set_current_state_body_axis'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(99,6): warning C4273: 'ed_fm_set_surface': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(64,17):
+      see previous definition of 'ed_fm_set_surface'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(104,6): warning C4273: 'ed_fm_set_command': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(73,17):
+      see previous definition of 'ed_fm_set_command'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(105,6): warning C4273: 'ed_fm_set_internal_fuel': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(74,17):
+      see previous definition of 'ed_fm_set_internal_fuel'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(106,6): warning C4273: 'ed_fm_set_external_fuel': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(75,17):
+      see previous definition of 'ed_fm_set_external_fuel'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(107,6): warning C4273: 'ed_fm_push_simulation_event': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(76,17):
+      see previous definition of 'ed_fm_push_simulation_event'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(108,6): warning C4273: 'ed_fm_on_damage': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(77,17):
+      see previous definition of 'ed_fm_on_damage'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(109,6): warning C4273: 'ed_fm_refueling_add_fuel': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(78,17):
+      see previous definition of 'ed_fm_refueling_add_fuel'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(110,6): warning C4273: 'ed_fm_cold_start': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(79,17):
+      see previous definition of 'ed_fm_cold_start'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(111,6): warning C4273: 'ed_fm_hot_start': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(80,17):
+      see previous definition of 'ed_fm_hot_start'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(112,6): warning C4273: 'ed_fm_hot_start_in_air': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(81,17):
+      see previous definition of 'ed_fm_hot_start_in_air'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(113,6): warning C4273: 'ed_fm_repair': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(82,17):
+      see previous definition of 'ed_fm_repair'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(114,6): warning C4273: 'ed_fm_on_planned_failure': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(83,17):
+      see previous definition of 'ed_fm_on_planned_failure'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(115,6): warning C4273: 'ed_fm_release': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(84,17):
+      see previous definition of 'ed_fm_release'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(116,6): warning C4273: 'ed_fm_set_draw_args': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(88,17):
+      see previous definition of 'ed_fm_set_draw_args'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(123,6): warning C4273: 'ed_fm_add_global_force': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(90,17):
+      see previous definition of 'ed_fm_add_global_force'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(124,6): warning C4273: 'ed_fm_add_global_moment': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(92,17):
+      see previous definition of 'ed_fm_add_global_moment'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(125,6): warning C4273: 'ed_fm_add_local_force_component': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(93,17):
+      see previous definition of 'ed_fm_add_local_force_component'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(126,6): warning C4273: 'ed_fm_add_global_force_component': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(94,17):
+      see previous definition of 'ed_fm_add_global_force_component'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(127,6): warning C4273: 'ed_fm_add_local_moment_component': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(95,17):
+      see previous definition of 'ed_fm_add_local_moment_component'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(128,6): warning C4273: 'ed_fm_add_global_moment_component': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(96,17):
+      see previous definition of 'ed_fm_add_global_moment_component'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(129,6): warning C4273: 'ed_fm_change_mass': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(97,17):
+      see previous definition of 'ed_fm_change_mass'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(134,8): warning C4273: 'ed_fm_get_internal_fuel': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(107,19):
+      see previous definition of 'ed_fm_get_internal_fuel'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(135,8): warning C4273: 'ed_fm_get_param': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(108,19):
+      see previous definition of 'ed_fm_get_param'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(136,6): warning C4273: 'ed_fm_pop_simulation_event': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(109,17):
+      see previous definition of 'ed_fm_pop_simulation_event'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(137,6): warning C4273: 'ed_fm_need_to_be_repaired': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(110,17):
+      see previous definition of 'ed_fm_need_to_be_repaired'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(138,6): warning C4273: 'ed_fm_configure': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(113,17):
+      see previous definition of 'ed_fm_configure'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(139,6): warning C4273: 'ed_fm_enable_debug_info': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(114,17):
+      see previous definition of 'ed_fm_enable_debug_info'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(140,6): warning C4273: 'ed_fm_set_immortal': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(115,17):
+      see previous definition of 'ed_fm_set_immortal'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(141,6): warning C4273: 'ed_fm_unlimited_fuel': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(116,17):
+      see previous definition of 'ed_fm_unlimited_fuel'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.cpp(142,6): warning C4273: 'ed_fm_set_plugin_data_install_path': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\bus.h(117,17):
+      see previous definition of 'ed_fm_set_plugin_data_install_path'
+  
+  engine.cpp
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
+  (compiling source file 'engine.cpp')
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(3,9): warning C4273: 'Engine::Engine': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(16,5):
+      see previous definition of 'Engine::Engine'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(5,16): warning C4273: 'Engine::getThrust': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(19,12):
+      see previous definition of 'Engine::getThrust'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(6,16): warning C4273: 'Engine::getRPM': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(20,12):
+      see previous definition of 'Engine::getRPM'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(7,16): warning C4273: 'Engine::getFuelFlow': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(21,12):
+      see previous definition of 'Engine::getFuelFlow'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(8,14): warning C4273: 'Engine::getIsRunning': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(22,10):
+      see previous definition of 'Engine::getIsRunning'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(10,14): warning C4273: 'Engine::update': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(24,10):
+      see previous definition of 'Engine::update'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.cpp(20,23): warning C4273: 'Engine::getThrust': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\engine.h(27,26):
+      see previous definition of 'Engine::getThrust'
+  
+  forcesMoments.cpp
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
+  (compiling source file 'forcesMoments.cpp')
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.cpp(23,15): warning C4273: 'sumAllForcesMoments': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(26,22):
+      see previous definition of 'sumAllForcesMoments'
+  
+  quaternions.cpp
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\forcesMoments.h(11,15): warning C4091: '__declspec(dllimport)': ignored on left of 'ForcesMoments' when no variable is declared
+  (compiling source file 'quaternions.cpp')
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(3,13): warning C4273: 'Quaternion::Quaternion': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(15,5):
+      see previous definition of 'Quaternion::Quaternion'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(7,24): warning C4273: 'Quaternion::conjugate': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(17,16):
+      see previous definition of 'Quaternion::conjugate'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(11,24): warning C4273: 'Quaternion::operator *': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(18,16):
+      see previous definition of 'Quaternion::operator *'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(20,18): warning C4273: 'Quaternion::normalize': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(19,10):
+      see previous definition of 'Quaternion::normalize'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(36,6): warning C4273: 'rotateVectorByQuaternion': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(22,13):
+      see previous definition of 'rotateVectorByQuaternion'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(49,15): warning C4273: 'rotateForcesByQuaternion': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(23,22):
+      see previous definition of 'rotateForcesByQuaternion'
+  
+C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.cpp(55,15): warning C4273: 'rotateMomentsByQuaternion': inconsistent dll linkage
+      C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\C-2A_EFM\quaternions.h(24,22):
+      see previous definition of 'rotateMomentsByQuaternion'
+  
+  Generating Code...
+     Creating library C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.lib and object C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.exp
+LINK : warning LNK4217: symbol '??0Quaternion@@QEAA@NNNN@Z (public: __cdecl Quaternion::Quaternion(double,double,double,double))' defined in 'quaternions.obj' is imported by 'bus.obj' in function '"public: __cdecl State::State(void)" (??0State@@QEAA@XZ)'
+LINK : warning LNK4217: symbol '?getThrust@Engine@@SA?AUForcesMoments@@AEBVState@@@Z (public: static struct ForcesMoments __cdecl Engine::getThrust(class State const &))' defined in 'engine.obj' is imported by 'bus.obj' in function 'ed_fm_simulate'
+  C-2A_EFM.vcxproj -> C:\Users\pablo\Desktop\Project\EFM\C-2A_EFM\x64\Debug\C-2A_EFM.dll
